@@ -3,26 +3,16 @@
 include '../../koneksi.php';
 
 //ambil data dari form
-$nama_barang_post = $_POST['nama_barang_post'];
-$deskripsi_post = $_POST['deskripsi_post'];
-$harga_post = $_POST['harga_post'];
-$kategori_post = $_POST['kategori_post'];
+$judul = $_POST['judul'];
+$isi = $_POST['isi'];
 //
 
 //proses upload gambar
-$nama_file = $_FILES['gambar_post']['name'];
-$source = $_FILES['gambar_post']['tmp_name'];
-$folder = './gambar/';
-move_uploaded_file($source, $folder . $nama_file);
 //
 //simpan data ke database
-$insert = mysqli_query($koneksi, "INSERT INTO data_barang VALUES (
+$insert = mysqli_query($koneksi, "INSERT INTO tb_twitter VALUES (
  NULL,
- '$nama_barang_post',
- '$deskripsi_post',
- '$harga_post',
- '$nama_file',
- '$kategori_post'
+ '$judul','$isi'
  )");
 //
 //cek apakah proses simpan ke database berhasil

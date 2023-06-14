@@ -4,12 +4,12 @@
 
  //ambil data dari form
  $id = $_POST['id'];
- $nama_kategori = $_POST['nama_kategori'];
+ $nama_sosmed = $_POST['nama_sosmed'];
  //
 
  //update data ke database
- $update = mysqli_query($koneksi, "UPDATE kategori SET
- nama_kategori = '$nama_kategori'
+ $update = mysqli_query($koneksi, "UPDATE tb_sosial SET
+ nama_sosmed = '$nama_sosmed'
  WHERE id = '$id'");
 
  //cek apakah proses edit ke database berhasil

@@ -4,12 +4,11 @@ include '../../koneksi.php';
 //ambil id dari url
 $id = $_GET['id'];
 //ambil data dari database
-$query = mysqli_query($koneksi, "SELECT * FROM data_barang WHERE id
+$query = mysqli_query($koneksi, "SELECT * FROM slider WHERE id
 = '$id'");
 $data = mysqli_fetch_array($query);
-$nama_barang = $data['nama_barang'];
-$deskripsi = $data['deskripsi'];
-$harga = $data['harga'];
+$nama_slider = $data['nama_slider'];
+$gambar = $data['gambar'];
 //
 ?>
 <!DOCTYPE html>
@@ -18,7 +17,7 @@ $harga = $data['harga'];
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Data Barang</title>
+  <title>Edit Data Slider</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -65,13 +64,13 @@ navbar-light">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Edit Data Barang</h1>
+              <h1 class="m-0">Edit Data Slider</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item active">Edit
-                  Data Barang</li>
+                  Data Slider</li>
               </ol>
             </div>
           </div>
@@ -81,7 +80,7 @@ navbar-light">
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data Barang</h3>
+            <h3 class="card-title">Form Data Slider</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
@@ -90,30 +89,8 @@ navbar-light">
               <input type="hidden" name="id" value="<?=
                                                     $id ?>">
               <div class="form-group">
-                <label>Nama Barang</label>
-                <input type="text" name="nama_barang_post" class="form-control" placeholder="Masukan Nama Barang" value="<?= $nama_barang ?>" required>
-              </div>
-              <div class="form-group">
-                <label>Deskripsi</label>
-                <textarea name="deskripsi_post" class="form-control" rows="3" required><?= $deskripsi
-                                                                                        ?></textarea>
-              </div>
-              <div class="form-group">
-                <label>Harga</label>
-                <input type="text" name="harga_post" class="form-control" placeholder="Masukan Harga Barang" value="<?= $harga ?>" required>
-              </div>
-              <div class="form-group">
-                <select class="form-control" name="kategori_post" required>
-                  <option value="">Pilih Kategori</option>
-                  <?php
-                  include '../../koneksi.php';
-                  $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
-                  while ($data = mysqli_fetch_array($kategori)) {
-                  ?> <option value="<?= $data['id'] ?>"> <?= $data['nama_kategori'] ?>
-                    <option></option> <?php
-                                    }
-                                      ?>
-                </select>
+                <label>Nama Slider</label>
+                <input type="text" name="nama_slider" class="form-control" placeholder="Masukan Nama slider" value="<?= $nama_slider ?>" required>
               </div>
               <div class="form-group">
                 <label>Pilih Gambar</label>
@@ -125,26 +102,27 @@ navbar-light">
                 </div>
               </div>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <a href="index.php" type="button" class="btn
-btn-default">kembali</a>
-            </div>
-          </form>
         </div>
-      </section>
-      <!-- MAIN CONTENT -->
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <a href="index.php" type="button" class="btn
+btn-warning">Kembali</a>
+        </div>
+        </form>
     </div>
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-      All rights reserved.
-      <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-      </div>
-    </footer>
-    <aside class="control-sidebar control-sidebar-dark">
-    </aside>
+    </section>
+    <!-- MAIN CONTENT -->
+  </div>
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
   </div>
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>

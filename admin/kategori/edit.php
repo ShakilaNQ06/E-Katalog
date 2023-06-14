@@ -8,7 +8,6 @@ $query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id
 = '$id'");
 $data = mysqli_fetch_array($query);
 $nama_kategori = $data['nama_kategori'];
-
 //
 ?>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ $nama_kategori = $data['nama_kategori'];
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Data Kategori</title>
+  <title>Edit Data Barang</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -58,41 +57,19 @@ navbar-light">
       <ul class="navbar-nav ml-auto">
       </ul>
     </nav>
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="index3.html" class="brand-link">
-        <img src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin Panel
-          E-Katalog</span>
-      </a>
-      <div class="sidebar">
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- MENU SIDEBAR / ASIDE -->
-            <li class="nav-item">
-              <a href="index.php" class="nav-link active">
-                <i class="nav-icon far fa-image"></i>
-                <p>
-                  Data Kategori
-                </p>
-              </a>
-            </li>
-            <!-- SIDEBAR / ASIDE -->
-          </ul>
-        </nav>
-      </div>
-    </aside>
+    <?php include '../sidebar.php' ?>
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Edit Data Kategori</h1>
+              <h1 class="m-0">Edit Data Barang</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item active">Edit
-                  Data Kategori</li>
+                  Data Barang</li>
               </ol>
             </div>
           </div>
@@ -102,22 +79,24 @@ navbar-light">
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data Kategori</h3>
+            <h3 class="card-title">Form Data Barang</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
           <form action="proses_edit.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
-              <input type="hidden" name="id" value="<?= $id ?>">
+              <input type="hidden" name="id" value="<?=
+                                                    $id ?>">
               <div class="form-group">
                 <label>Nama Kategori</label>
-                <input type="text" name="nama_kategori_post" class="form-control" placeholder="Masukan Nama Kategori" value="<?= $nama_kategori ?>" required>
+                <input type="text" name="nama_kategori" class="form-control" placeholder="Masukan Nama Katagori" value="<?= $nama_kategori ?>" required>
               </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <button type="submit" class="btn btnprimary">Simpan</button>
-              <a href="index.php" type="button" class="btn btn-default">kembali</a>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              <a href="index.php" type="button" class="btn
+btn-warning">kembali</a>
             </div>
           </form>
         </div>

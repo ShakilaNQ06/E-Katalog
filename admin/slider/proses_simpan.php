@@ -3,10 +3,7 @@
 include '../../koneksi.php';
 
 //ambil data dari form
-$nama_barang_post = $_POST['nama_barang_post'];
-$deskripsi_post = $_POST['deskripsi_post'];
-$harga_post = $_POST['harga_post'];
-$kategori_post = $_POST['kategori_post'];
+$nama_slider = $_POST['nama_slider'];
 //
 
 //proses upload gambar
@@ -16,13 +13,10 @@ $folder = './gambar/';
 move_uploaded_file($source, $folder . $nama_file);
 //
 //simpan data ke database
-$insert = mysqli_query($koneksi, "INSERT INTO data_barang VALUES (
+$insert = mysqli_query($koneksi, "INSERT INTO slider VALUES (
  NULL,
- '$nama_barang_post',
- '$deskripsi_post',
- '$harga_post',
- '$nama_file',
- '$kategori_post'
+ '$nama_slider',
+ '$nama_file'
  )");
 //
 //cek apakah proses simpan ke database berhasil

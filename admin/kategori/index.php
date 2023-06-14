@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Kategori</title>
+  <title>Data kategori</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -45,29 +45,9 @@ navbar-light">
       <ul class="navbar-nav ml-auto">
       </ul>
     </nav>
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="index3.html" class="brand-link">
-        <img src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin Panel
-          E-Katalog</span>
-      </a>
-      <div class="sidebar">
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- MENU SIDEBAR / ASIDE -->
-            <li class="nav-item">
-              <a href="index.php" class="nav-link active">
-                <i class="nav-icon far fa-image"></i>
-                <p>
-                  Data Kategori
-                </p>
-              </a>
-            </li>
-            <!-- SIDEBAR / ASIDE -->
-          </ul>
-        </nav>
-      </div>
-    </aside>
+
+    <?php include '../sidebar.php' ?>
+
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
@@ -78,7 +58,8 @@ navbar-light">
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Data Kategori</li>
+                <li class="breadcrumb-item active">Data
+                  Barang</li>
               </ol>
             </div>
           </div>
@@ -88,8 +69,9 @@ navbar-light">
       <section class="content">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Tabel Data Kategori</h3>
-            <a href="tambah.php" class="btn btn-primary float-right">Tambah Data</a>
+            <h3 class="card-title">Tabel Data kategori</h3>
+            <a href="tambah.php" class="btn btn-primary
+float-right">Tambah Data</a>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -97,23 +79,29 @@ navbar-light">
               <thead>
                 <tr>
                   <th style="width: 10px">No</th>
-                  <th>Nama Kategori</th>
-                  <th class="text-center">Aksi</th>
+                  <th>Nama kategori</th>
+                  <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
                 include '../../koneksi.php';
                 $no = 1;
-                $query = mysqli_query($koneksi, "SELECT* FROM kategori");
-                while ($data = mysqli_fetch_array($query)) {
+                $query = mysqli_query($koneksi, "SELECT
+* FROM kategori");
+                while ($data =
+                  mysqli_fetch_array($query)
+                ) {
                 ?>
                   <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $data['nama_kategori']; ?></td>
+                    <td><?= $data['nama_kategori'];
+                        ?></td>
                     <td class="text-center">
-                      <a href="edit.php?id=<?= $data['id']; ?>" class="btn btn-warning">Edit</a>
-                      <a href="proses_hapus.php?id=<?= $data['id']; ?>" class="btn btn danger">Hapus</a>
+                      <a href="edit.php?id=<?=
+                                            $data['id']; ?>" class="btn btn-warning">Edit</a>
+                      <a href="proses_hapus.php?id=<?=
+                                                    $data['id']; ?>" class="btn btn-danger">Hapus</a>
                     </td>
                   </tr>
                 <?php }

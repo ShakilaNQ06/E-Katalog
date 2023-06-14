@@ -4,14 +4,12 @@
  //ambil id dari url
  $id = $_GET['id'];
  //hapus file gambar dari folder gambar
- $query = mysqli_query($koneksi, "SELECT * FROM data_barang WHERE id
+ $query = mysqli_query($koneksi, "SELECT * FROM tb_about WHERE id
 = '$id'");
  $data = mysqli_fetch_array($query);
- $nama_file = $data['gambar'];
- unlink('./gambar/'.$nama_file);
  //
  //hapus data dari database
- $hapus = mysqli_query($koneksi, "DELETE FROM data_barang WHERE id =
+ $hapus = mysqli_query($koneksi, "DELETE FROM tb_about WHERE id =
 '$id'");
  //cek apakah proses hapus data berhasil
  if($hapus){

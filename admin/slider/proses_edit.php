@@ -4,12 +4,18 @@
 
  //ambil data dari form
  $id = $_POST['id'];
- $nama_kategori = $_POST['nama_kategori'];
+ $nama_slide = $_POST['nama_slide'];
  //
-
+//proses upload gambar
+$nama_file = $_FILES['gambar_post']['name'];
+$source = $_FILES['gambar_post']['tmp_name'];
+$folder = './gambar/';
+move_uploaded_file($source, $folder . $nama_file);
+//
  //update data ke database
- $update = mysqli_query($koneksi, "UPDATE kategori SET
- nama_kategori = '$nama_kategori'
+ $update = mysqli_query($koneksi, "UPDATE slider SET
+ nama_slide = '$nama_slide',
+ pictures =  '$nama_file'
  WHERE id = '$id'");
 
  //cek apakah proses edit ke database berhasil

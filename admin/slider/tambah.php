@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Barang</title>
+  <title>Tambah Data slider</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
 0i,700&display=fallback">
@@ -32,10 +32,10 @@ ss">
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    <div class="preloader flex-column justify-content-center alignitems-center">
+    <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
-    <nav class="main-header navbar navbar-expand navbar-white
+    <nav class="main-header navbar navbar-expand navbar-white 
 navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -51,12 +51,12 @@ navbar-light">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Tambah Data Barang</h1>
+              <h1 class="m-0">Tambah Data slider</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Data Barang</li>
+                <li class="breadcrumb-item active">Tambah Data slider</li>
               </ol>
             </div>
           </div>
@@ -66,81 +66,61 @@ navbar-light">
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data Barang</h3>
+            <h3 class="card-title">Form Data slider</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
           <form action="proses_simpan.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
-                <label>Nama Barang</label>
-                <input type="text" name="nama_barang_post" class="form-control" placeholder="Masukan Nama Barang" required>
-              </div>
-              <div class="form-group">
-                <label>Deskripsi</label>
-                <textarea name="deskripsi_post" class="form-control" rows="3" required></textarea>
-              </div>
-              <div class="form-group">
-                <label>Harga</label>
-                <input type="text" name="harga_post" class="form-control" placeholder="Masukan Harga Barang" required>
-              </div>
-              <div class="form-group">
-                <select class="form-control" name="kategori_post" required>
-                  <option value="">Pilih Kategori</option>
-                  <?php
-                  include '../../koneksi.php';
-                  $kategori = mysqli_query($koneksi, "SELECT * FROM kategori");
-                  while ($data = mysqli_fetch_array($kategori)) {
-                  ?> <option value="<?= $data['id'] ?>"> <?= $data['nama_kategori'] ?>
-                    <option></option> <?php
-                                    }
-                                      ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Pilih Gambar</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" name="gambar_post" class="custom-file-input">
-                    <label class="custom-file-label">Pilih File Gambar</label>
-                  </div>
-                </div>
+                <label>Nama slider</label>
+                <input type="text" name="nama_slider" class="form-control" placeholder="Masukan Nama slider" required>
               </div>
             </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-              <button type="submit" class="btn btnprimary">Simpan</button>
-              <a href="index.php" type="button" class="btn
-btn-default">kembali</a>
-            </div>
-          </form>
         </div>
-      </section>
-      <!-- MAIN CONTENT -->
+
+        <div class="form-group">
+          <label>Pilih gambar</label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" name="gambar_post" class="custom-file-input">
+              <label class="custom-file-label">Pilih File gambar</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <a href="index.php" type="button" class="btn btn-default">kembali</a>
+        </div>
+        </form>
     </div>
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-      All rights reserved.
-      <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-      </div>
-    </footer>
-    <aside class="control-sidebar control-sidebar-dark">
-    </aside>
+    </section>
+    <!-- MAIN CONTENT -->
+  </div>
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
   </div>
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
-  <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
+  <script src="../../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
 >
  <script>
  $.widget.bridge('uibutton', $.ui.button)
  </script>
- <script>
-src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script
->
- <!-- ChartJS -->
+ <!-- Bootstrap 4 -->
+  <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
   <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
   <!-- Sparkline -->
   <script src="../../assets/plugins/sparklines/sparkline.js"></script>
@@ -148,14 +128,14 @@ src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script
   <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
   <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
   <!-- jQuery Knob Chart -->
-  <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
+  <script src="../../assets/plugins/jquery-knob/jquery.knob.min.js"></script>
   <!-- daterangepicker -->
   <script src="../../assets/plugins/moment/moment.min.js"></script>
   <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="../../assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- Summernote -->
-  <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
+  <script src="../../assets/plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
   <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
 min.js"></script>

@@ -3,15 +3,16 @@
  include '../../koneksi.php';
 
  //ambil data dari form
- $nama_kategori = $_POST['nama_kategori'];
+ $judul = $_POST['judul'];
+ $isi = $_POST['isi'];
  //
 
  //proses upload gambar
  //
  //simpan data ke database
- $insert = mysqli_query($koneksi, "INSERT INTO kategori VALUES (
+ $insert = mysqli_query($koneksi, "INSERT INTO tb_about VALUES (
  NULL,
- '$nama_kategori'
+ '$judul','$isi'
  )");
  //
  //cek apakah proses simpan ke database berhasil

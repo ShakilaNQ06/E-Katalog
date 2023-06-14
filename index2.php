@@ -16,7 +16,6 @@
 
 <body>
 
-
   <div id="templatemo_wrapper">
     <div id="templatemo_header">
       <div class="templatemo_header_box left">
@@ -28,10 +27,14 @@
           <div id="slider" class="nivoSlider">
             <?php
             include "koneksi.php";
-            $query = mysqli_query($koneksi, "SELECT * FROM slider");
-            while (mysqli_fetch_array($query)) {
+
+            $query = mysqli_query($koneksi, "SELECT
+* FROM slider");
+            while ($data =
+              mysqli_fetch_array($query)
+            ) {
             ?>
-              <img src="admin/slider/gambar/shop.jpg <?= $data['gambar'] ?>" alt="Image" />
+              <img src="admin/slider/gambar/shop.jpg ?= $data['gambar'] ?>" alt="Image" />
             <?php } ?>
           </div>
         </div>
@@ -46,7 +49,7 @@
             });
           });
         </script>
-      </div> <!-- END of templatemo_slider -->
+      </div><!-- END of templatemo_slider -->
 
       <div class="templatemo_header_box right">
         <ul id="templatemo_menu">
@@ -70,8 +73,11 @@
     <div id="templatemo_main"><span class="mf mft"></span><span class="mf mfb"></span>
       <?php
       include "koneksi.php";
-      $query = mysqli_query($koneksi, "SELECT * FROM
-data_barang");
+      $idkategori = $_GET['id'];
+      $query = mysqli_query($koneksi, "SELECT data_barang.*, kategori.nama_kategori
+      FROM data_barang
+      INNER JOIN kategori ON data_barang.id_kategori = kategori.id where kategori.id = $idkategori
+      ORDER BY id DESC");
       while ($data = mysqli_fetch_array($query)) {
 
       ?>
