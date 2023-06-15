@@ -4,15 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tambah Data Sosmed</title>
+  <title>Tambah Data Social</title>
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
-0i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
-s">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="../../assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
@@ -22,8 +20,7 @@ s">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.c
-ss">
+  <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="../../assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
@@ -35,28 +32,26 @@ ss">
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
-    <nav class="main-header navbar navbar-expand navbar-white 
-navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
-      </ul>
+      <ul class="navbar-nav ml-auto"></ul>
     </nav>
-    <?php include '../sidebar.php' ?>
+    <?php include_once("../sidebar.php"); ?>
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Tambah Data Sosmed</h1>
+              <h1 class="m-0">Tambah Data Social</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Data Sosmed</li>
+                <li class="breadcrumb-item active">Tambah Data Social</li>
               </ol>
             </div>
           </div>
@@ -66,66 +61,51 @@ navbar-light">
       <section class="content">
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Form Data Sosmed</h3>
+            <h3 class="card-title">Form Data Social</h3>
           </div>
-          <!-- /.card-header -->
-          <!-- form start -->
+
           <form action="proses_simpan.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
               <div class="form-group">
                 <label>Nama Sosmed</label>
                 <input type="text" name="nama_sosmed" class="form-control" placeholder="Masukan Nama Sosmed" required>
               </div>
-            </div>
-
-
-            <div class="form-group">
-              <label>Link</label>
-              <input type="text" name="link" class="form-control" placeholder="Masukan Link" required>
-            </div>
-
-            <div class="form-group">
-              <label>Pilih Icon</label>
-              <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" name="gambar_post" class="custom-file-input">
-                  <label class="custom-file-label">Pilih File Icon</label>
+              <div class="form-group">
+                <label>Pilih Icon</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" name="gambar_post" class="custom-file-input">
+                    <label class="custom-file-label">Pilih File Icon</label>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              <a href="index.php" type="button" class="btn btn-default">Kembali</a>
+            </div>
+          </form>
         </div>
-
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btnprimary">Simpan</button>
-          <a href="index.php" type="button" class="btn
-btn-default">kembali</a>
+      </section>
+      <!-- MAIN CONTENT -->
+    </div>
+    <footer class="main-footer">
+      <strong>Copyright &copy; Shakila
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 3.2.0
         </div>
-        </form>
-    </div>
-    </section>
-    <!-- MAIN CONTENT -->
-  </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
-  <aside class="control-sidebar control-sidebar-dark">
-  </aside>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark"></aside>
   </div>
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="../../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
->
- <script>
- $.widget.bridge('uibutton', $.ui.button)
- </script>
- <!-- Bootstrap 4 -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
   <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- ChartJS -->
   <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
@@ -144,8 +124,7 @@ btn-default">kembali</a>
   <!-- Summernote -->
   <script src="../../assets/plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
-  <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
-min.js"></script>
+  <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../assets/dist/js/adminlte.js"></script>
 </body>

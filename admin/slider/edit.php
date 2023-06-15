@@ -1,15 +1,10 @@
 <?php
-//load koneksi database
 include '../../koneksi.php';
-//ambil id dari url
 $id = $_GET['id'];
-//ambil data dari database
-$query = mysqli_query($koneksi, "SELECT * FROM slider WHERE id
-= '$id'");
+$query = mysqli_query($koneksi, "SELECT * FROM slider WHERE id= '$id'");
 $data = mysqli_fetch_array($query);
-$nama_slider = $data['nama_slider'];
+$namaSlider = $data['nama_slider'];
 $gambar = $data['gambar'];
-//
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,24 +14,21 @@ $gambar = $data['gambar'];
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Edit Data Slider</title>
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,40
-0i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../assets/plugins/fontawesomefree/css/all.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.cs
-s">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../../assets/plugins/tempusdominusbootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../assets/plugins/icheckbootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="../../assets/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../assets/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.c
-ss">
+  <link rel="stylesheet" href="../../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="../../assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
@@ -45,20 +37,18 @@ ss">
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    <div class="preloader flex-column justify-content-center alignitems-center">
+    <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="../../assets/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
-    <nav class="main-header navbar navbar-expand navbar-white
-navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
-      </ul>
+      <ul class="navbar-nav ml-auto"></ul>
     </nav>
-    <?php include '../sidebar.php' ?>
+    <?php include_once("../sidebar.php"); ?>
     <div class="content-wrapper">
       <div class="content-header">
         <div class="container-fluid">
@@ -69,8 +59,7 @@ navbar-light">
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active">Edit
-                  Data Slider</li>
+                <li class="breadcrumb-item active">Edit Data Slider</li>
               </ol>
             </div>
           </div>
@@ -86,54 +75,51 @@ navbar-light">
           <!-- form start -->
           <form action="proses_edit.php" method="post" enctype="multipart/form-data">
             <div class="card-body">
-              <input type="hidden" name="id" value="<?=
-                                                    $id ?>">
+              <input type="hidden" name="id" value="<?= $id ?>">
               <div class="form-group">
                 <label>Nama Slider</label>
-                <input type="text" name="nama_slider" class="form-control" placeholder="Masukan Nama slider" value="<?= $nama_slider ?>" required>
+                <input type="text" name="nama_slider" class="form-control" placeholder="Masukan Nama Slider" value="<?= $namaSlider ?>" required>
               </div>
               <div class="form-group">
                 <label>Pilih Gambar</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" name="gambar_post" class="custom-file-input">
+                    <input type="file" name="gambar_post" class="custom-file-input" required>
                     <label class="custom-file-label">Pilih File Gambar</label>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              <a href="index.php" type="button" class="btn btn-default">kembali</a>
+            </div>
+          </form>
         </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Simpan</button>
-          <a href="index.php" type="button" class="btn
-btn-warning">Kembali</a>
-        </div>
-        </form>
+      </section>
+      <!-- MAIN CONTENT -->
     </div>
-    </section>
-    <!-- MAIN CONTENT -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
   </div>
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
-    </div>
-  </footer>
-  <aside class="control-sidebar control-sidebar-dark">
-  </aside>
-  </div>
+
   <!-- jQuery -->
   <script src="../../assets/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
-  <script src="../../assets/plugins/jquery-ui/jqueryui.min.js"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip --
->
- <script>
- $.widget.bridge('uibutton', $.ui.button)
- </script>
- <!-- Bootstrap 4 -->
+  <script src="../../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
   <script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- ChartJS -->
   <script src="../../assets/plugins/chart.js/Chart.min.js"></script>
@@ -143,17 +129,16 @@ btn-warning">Kembali</a>
   <script src="../../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
   <script src="../../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
   <!-- jQuery Knob Chart -->
-  <script src="../../assets/plugins/jqueryknob/jquery.knob.min.js"></script>
+  <script src="../../assets/plugins/jquery-knob/jquery.knob.min.js"></script>
   <!-- daterangepicker -->
   <script src="../../assets/plugins/moment/moment.min.js"></script>
   <script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="../../assets/plugins/tempusdominus-bootstrap4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="../../assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- Summernote -->
-  <script src="../../assets/plugins/summernote/summernotebs4.min.js"></script>
+  <script src="../../assets/plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
-  <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.
-min.js"></script>
+  <script src="../../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="../../assets/dist/js/adminlte.js"></script>
 </body>

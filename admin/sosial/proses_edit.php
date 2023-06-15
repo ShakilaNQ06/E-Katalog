@@ -1,29 +1,23 @@
 <?php
- //load koneksi database
- include '../../koneksi.php';
+include '../../koneksi.php';
+$id = $_POST['id'];
+$namaSosmed = $_POST['nama_sosmed'];
+$link = $_POST['link'];
 
- //ambil data dari form
- $id = $_POST['id'];
- $nama_sosmed = $_POST['nama_sosmed'];
- //
+$nama_file = $_FILES['gambar_post']['name'];
+$source = $_FILES['gambar_post']['tmp_name'];
+$folder = '../../gambarSocial/';
+$namaFile = uniqid() . $nama_file;
+move_uploaded_file($source, $folder . $namaFile);
+// this file edited by Shakila
+$update = mysqli_query($koneksi, "UPDATE tb_sosial SET
+nama_sosmed = '$namaSosmed',
+link = '$link',
+icon = '$namaFile'
+WHERE id = '$id'");
 
- //update data ke database
- $update = mysqli_query($koneksi, "UPDATE tb_sosial SET
- nama_sosmed = '$nama_sosmed'
- WHERE id = '$id'");
-
- //cek apakah proses edit ke database berhasil
- if($update){
- //jika berhasil tampilkan pesan berhasil edit data
- echo "<script>
- alert('Data Berhasil Diubah');
- window.location.href='index.php';
- </script>";
- }else{
- //jika gagal tampilkan pesan gagal edit data
- echo "<script>
- alert('Data Gagal Diubah');
- window.location.href='index.php';
- </script>";
- }
- //
+if ($update) {
+  echo "<script>alert('Data Berhasil Diubah');window.location.href='index.php';</script>";
+} else {
+  echo "<script>alert('Data Gagal Diubah');window.location.href='index.php';</script>";
+}
